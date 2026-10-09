@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Details</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Student(props) {
+      return (
+        <div>
+          <h2>Student Details</h2>
+          <p>Name: {props.name}</p>
+          <p>Department: {props.department}</p>
+          <p>Year: {props.year}</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Student
+            name="Abinaya"
+            department="Computer Science"
+            year="III"
+          />
+
+          <Student
+            name="Priya"
+            department="Information Technology"
+            year="II"
+          />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

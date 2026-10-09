@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Product() {
+      return (
+        <div>
+          <h1>Product Details</h1>
+          <h2>Laptop</h2>
+          <p>Brand: Dell</p>
+          <p>Price: Rs. 50000</p>
+          <p>Category: Electronics</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return <Product />;
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

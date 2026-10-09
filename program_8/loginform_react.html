@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Login</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Header() {
+      return <h2>Student Login</h2>;
+    }
+
+    function LoginForm() {
+      const [username, setUsername] = React.useState("");
+      const [password, setPassword] = React.useState("");
+      const [message, setMessage] = React.useState("");
+
+      function handleLogin(e) {
+        e.preventDefault();
+
+        if (username === "admin" && password === "1234") {
+          setMessage("Login Successful!");
+        } else {
+          setMessage("Invalid Username or Password");
+        }
+      }
+
+      function handleUsername(e) {
+        setUsername(e.target.value);
+      }
+
+      function handlePassword(e) {
+        setPassword(e.target.value);
+      }
+
+      return (
+        <div>
+          <form onSubmit={handleLogin}>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={handleUsername}
+            />
+            <br /><br />
+
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={handlePassword}
+            />
+            <br /><br />
+
+            <button type="submit">Login</button>
+          </form>
+
+          <p>{message}</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Header />
+          <LoginForm />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

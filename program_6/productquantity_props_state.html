@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Product(props) {
+      const [quantity, setQuantity] = React.useState(0);
+
+      function addQuantity() {
+        setQuantity(quantity + 1);
+      }
+
+      function removeQuantity() {
+        setQuantity(Math.max(0, quantity - 1));
+      }
+
+      return (
+        <div>
+          <h1>Product Details</h1>
+          <h2>{props.name}</h2>
+          <p>Price: Rs. {props.price}</p>
+          <p>Quantity: {quantity}</p>
+          <p>Total: Rs. {quantity * props.price}</p>
+
+          <button onClick={addQuantity}>Add</button>
+          <button onClick={removeQuantity}>Remove</button>
+        </div>
+      );
+    }
+
+    function App() {
+      return <Product name="Laptop" price={50000} />;
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

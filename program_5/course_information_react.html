@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Course Information</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Course() {
+      return (
+        <div>
+          <h1>Course Information</h1>
+          <h2>Web Development</h2>
+          <p>Course: React JS</p>
+          <p>Duration: 3 Months</p>
+          <p>Mode: Online</p>
+          <p>Status: Available</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return <Course />;
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

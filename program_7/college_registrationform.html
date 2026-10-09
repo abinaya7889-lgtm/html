@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Registration</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      const [name, setName] = React.useState("");
+      const [email, setEmail] = React.useState("");
+      const [gender, setGender] = React.useState("");
+      const [course, setCourse] = React.useState("");
+      const [message, setMessage] = React.useState("");
+
+      function handleSubmit(e) {
+        e.preventDefault();
+
+        if (!name || !email || !gender || !course) {
+          setMessage("Please fill all fields");
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          setMessage("Enter a valid email");
+        } else {
+          setMessage("College Registration Successful!");
+        }
+      }
+
+      function handleName(e) {
+        setName(e.target.value);
+      }
+
+      function handleEmail(e) {
+        setEmail(e.target.value);
+      }
+
+      function handleGender(e) {
+        setGender(e.target.value);
+      }
+
+      function handleCourse(e) {
+        setCourse(e.target.value);
+      }
+
+      return (
+        <div>
+          <h2>College Registration</h2>
+
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Student Name"
+              value={name}
+              onChange={handleName}
+            />
+            <br /><br />
+
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleEmail}
+            />
+            <br /><br />
+
+            <label>Gender: </label>
+            <select value={gender} onChange={handleGender}>
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <br /><br />
+
+            <label>Course: </label>
+            <select value={course} onChange={handleCourse}>
+              <option value="">Select Course</option>
+              <option value="BCA">BCA</option>
+              <option value="BSc CS">BSc Computer Science</option>
+              <option value="BCom">BCom</option>
+              <option value="BBA">BBA</option>
+            </select>
+            <br /><br />
+
+            <button type="submit">Register</button>
+          </form>
+
+          <p>{message}</p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Account</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Bank(props) {
+      const [balance, setBalance] = React.useState(props.amount);
+      const [message, setMessage] = React.useState("");
+
+      function deposit() {
+        setBalance(balance + 1000);
+        setMessage("Rs. 1000 deposited successfully");
+      }
+
+      function withdraw() {
+        if (balance >= 500) {
+          setBalance(balance - 500);
+          setMessage("Rs. 500 withdrawn successfully");
+        } else {
+          setMessage("Insufficient balance");
+        }
+      }
+
+      return (
+        <div>
+          <h1>Bank Account</h1>
+          <h2>{props.name}</h2>
+          <p>Account Balance: Rs. {balance}</p>
+
+          <button onClick={deposit}>
+            Deposit Rs. 1000
+          </button>
+
+          <button onClick={withdraw}>
+            Withdraw Rs. 500
+          </button>
+
+          <p>{message}</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return <Bank name="Abinaya" amount={5000} />;
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

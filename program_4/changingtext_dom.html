@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Text</title>
+</head>
+<body>
+    <h2>DOM Manipulation</h2>
+
+    <p id="demo">Welcome to JavaScript</p>
+
+    <button onclick="changeText()">Click Here</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("demo").innerHTML =
+                "Text Changed Successfully!";
+        }
+    </script>
+</body>
+</html>
